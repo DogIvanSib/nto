@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+  <data key="gFormat">Cyberiada-GraphML-1.0</data>
+  <graph id="gMain" edgedefault="directed">
+    <data key="dStateMachine" />
+    <data key="dName">Новый граф</data>
+    <node id="coreMeta">
+      <data key="dNote">formal</data>
+      <data key="dName">CGML_META</data>
+      <data key="dData">standardVersion/ 1.0
+
+platform/ Cyberiada Graph Editor
+
+platformVersion/ 1.1.0
+</data>
+    </node>
+    <node id="6724473f-78e6-4907-a2c3-3567e577c950">
+      <data key="dName">починить</data>
+      <data key="dGeometry">
+        <point x="-121.999916" y="-79.29602" />
+      </data>
+      <data key="dData">МодульОбнаружения.ВзаимодействиеИгрока[Таймер.ТекущееЗначениеТаймера &gt;= 120]/
+МодульОбнаружения.ВзаимодействиеИгрокаСОбъектом(hero, 10)
+</data>
+    </node>
+    <node id="initial">
+      <data key="dVertex">initial</data>
+      <data key="dName">INIT</data>
+      <data key="dGeometry">
+        <point x="-621.998169" y="-52.2955437" />
+      </data>
+    </node>
+    <edge id="9e0986fd-5a5f-4f9c-b60b-6ec4d27b9f79" source="initial" target="6724473f-78e6-4907-a2c3-3567e577c950">
+      <data key="dLabelGeometry">
+        <point x="0.000307549373" y="-0.000320363935" />
+      </data>
+    </edge>
+  </graph>
+</graphml>
