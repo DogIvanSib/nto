@@ -2,35 +2,46 @@
 <graphml xmlns="http://graphml.graphdrawing.org/xmlns"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
-  <key id="d0" for="node" attr.name="label" attr.type="string"/>
-  <key id="d1" for="node" attr.name="shape" attr.type="string"/>
-  <key id="d2" for="edge" attr.name="label" attr.type="string"/>
-  <key id="d3" for="edge" attr.name="guard" attr.type="string"/>
-  <key id="d4" for="edge" attr.name="action" attr.type="string"/>
-  <key id="d5" for="graph" attr.name="machine_name" attr.type="string"/>
-  <key id="d6" for="graph" attr.name="target_object" attr.type="string"/>
-  <key id="d7" for="graph" attr.name="variables" attr.type="string"/>
+  <key id="k_label" for="node" attr.name="label" attr.type="string"/>
+  <key id="k_state" for="node" attr.name="state" attr.type="string"/>
+  <key id="k_event" for="edge" attr.name="event" attr.type="string"/>
+  <key id="k_guard" for="edge" attr.name="guard" attr.type="string"/>
+  <key id="k_action" for="edge" attr.name="action" attr.type="string"/>
+  <key id="k_name" for="graph" attr.name="machine_name" attr.type="string"/>
+  <key id="k_target" for="graph" attr.name="target_object" attr.type="string"/>
+  <key id="k_autostart" for="graph" attr.name="autostart" attr.type="boolean"/>
+  <key id="k_vars" for="graph" attr.name="variables" attr.type="string"/>
   <graph id="D4" edgedefault="directed">
-    <data key="d5">Робот_патруль</data>
-    <data key="d6">robot</data>
-    <data key="d7">t_wait:float=3.0</data>
+    <data key="k_name">Робот_патруль</data>
+    <data key="k_target">robot</data>
+    <data key="k_autostart">true</data>
+    <data key="k_vars">t_wait:float=3.0; target:string="PointB"</data>
+    <node id="Idle">
+      <data key="k_label">Idle (стартовое)</data>
+      <data key="k_state">start</data>
+    </node>
     <node id="Patrol">
-      <data key="d0">Patrol: движение к точке B</data>
-      <data key="d1">state</data>
+      <data key="k_label">Patrol: движение к целевой точке</data>
+      <data key="k_state">state</data>
     </node>
     <node id="Wait">
-      <data key="d0">Wait: пауза на точке</data>
-      <data key="d1">state</data>
+      <data key="k_label">Wait: пауза на точке</data>
+      <data key="k_state">state</data>
     </node>
+    <edge id="e0" source="Idle" target="Patrol">
+      <data key="k_event">GameStarted</data>
+      <data key="k_guard"></data>
+      <data key="k_action">moveTo(target)</data>
+    </edge>
     <edge id="e1" source="Patrol" target="Wait">
-      <data key="d2">Достигнута целевая точка</data>
-      <data key="d3">distance(robot, target) &lt; 0.5</data>
-      <data key="d4">swap(target, A, B); startTimer(t_wait)</data>
+      <data key="k_event">ReachedTarget</data>
+      <data key="k_guard">distance(robot, target) &lt; 0.5</data>
+      <data key="k_action">swap(target); startTimer(t_wait)</data>
     </edge>
     <edge id="e2" source="Wait" target="Patrol">
-      <data key="d2">Пауза завершена</data>
-      <data key="d3">timerExpired(t_wait)</data>
-      <data key="d4">moveTo(target)</data>
+      <data key="k_event">TimerExpired</data>
+      <data key="k_guard">timerExpired(t_wait)</data>
+      <data key="k_action">moveTo(target)</data>
     </edge>
   </graph>
 </graphml>
