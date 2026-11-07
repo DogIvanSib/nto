@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns">
+  <data key="gFormat">Cyberiada-GraphML-1.0</data>
+  <graph id="gMain" edgedefault="directed">
+    <data key="dStateMachine" />
+    <data key="dName">Новый граф</data>
+    <node id="coreMeta">
+      <data key="dNote">formal</data>
+      <data key="dName">CGML_META</data>
+      <data key="dData">standardVersion/ 1.0
+
+platform/ Cyberiada Graph Editor
+
+platformVersion/ 1.1.0
+</data>
+    </node>
+    <node id="f77f7390-b902-43e1-b6f0-79d8c26ab2f4">
+      <data key="dName">Lol</data>
+      <data key="dGeometry">
+        <point x="-0.000155166344" y="-0.0002563618" />
+      </data>
+      <data key="dData">МодульОбнаружения.ИгрокОбнаружен/
+МодульОбнаружения.ПоискИгрокаВРадиусе(0)
+</data>
+    </node>
+    <node id="initial">
+      <data key="dVertex">initial</data>
+      <data key="dName">INIT</data>
+      <data key="dGeometry">
+        <point x="-500.000061" y="-0.0002563618" />
+      </data>
+    </node>
+    <edge id="64129b6e-4b59-4b28-9ed0-0a75949ee35a" source="initial" target="f77f7390-b902-43e1-b6f0-79d8c26ab2f4">
+      <data key="dLabelGeometry">
+        <point x="-0.000155166344" y="-0.0002563618" />
+      </data>
+    </edge>
+  </graph>
+</graphml>
