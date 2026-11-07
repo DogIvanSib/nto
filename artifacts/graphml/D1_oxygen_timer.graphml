@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="node" attr.name="label" attr.type="string"/>
+  <key id="d1" for="node" attr.name="shape" attr.type="string"/>
+  <key id="d2" for="edge" attr.name="label" attr.type="string"/>
+  <key id="d3" for="edge" attr.name="guard" attr.type="string"/>
+  <key id="d4" for="edge" attr.name="action" attr.type="string"/>
+  <key id="d5" for="graph" attr.name="machine_name" attr.type="string"/>
+  <key id="d6" for="graph" attr.name="target_object" attr.type="string"/>
+  <key id="d7" for="graph" attr.name="variables" attr.type="string"/>
+  <graph id="D1" edgedefault="directed">
+    <data key="d5">Таймер_кислорода</data>
+    <data key="d6">column (служебный носитель логики c1)</data>
+    <data key="d7">O2:int=90</data>
+    <node id="Counting">
+      <data key="d0">Counting: кислород тратится каждую секунду</data>
+      <data key="d1">state</data>
+    </node>
+    <node id="Fail">
+      <data key="d0">Fail: экран поражения «Кислород закончился»</data>
+      <data key="d1">terminal</data>
+    </node>
+    <edge id="e1" source="Counting" target="Counting">
+      <data key="d2">Каждая секунда</data>
+      <data key="d3">O2 &gt; 0</data>
+      <data key="d4">O2 := O2 - 1; updateHUD(O2)</data>
+    </edge>
+    <edge id="e2" source="Counting" target="Fail">
+      <data key="d2">Кислород исчерпан</data>
+      <data key="d3">O2 == 0</data>
+      <data key="d4">stopTimer(); showDefeatScreen()</data>
+    </edge>
+  </graph>
+</graphml>

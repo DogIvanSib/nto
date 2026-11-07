@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d0" for="node" attr.name="label" attr.type="string"/>
+  <key id="d1" for="node" attr.name="shape" attr.type="string"/>
+  <key id="d2" for="edge" attr.name="label" attr.type="string"/>
+  <key id="d3" for="edge" attr.name="guard" attr.type="string"/>
+  <key id="d4" for="edge" attr.name="action" attr.type="string"/>
+  <key id="d5" for="graph" attr.name="machine_name" attr.type="string"/>
+  <key id="d6" for="graph" attr.name="target_object" attr.type="string"/>
+  <key id="d7" for="graph" attr.name="variables" attr.type="string"/>
+  <graph id="D4" edgedefault="directed">
+    <data key="d5">Робот_патруль</data>
+    <data key="d6">robot</data>
+    <data key="d7">t_wait:float=3.0</data>
+    <node id="Patrol">
+      <data key="d0">Patrol: движение к точке B</data>
+      <data key="d1">state</data>
+    </node>
+    <node id="Wait">
+      <data key="d0">Wait: пауза на точке</data>
+      <data key="d1">state</data>
+    </node>
+    <edge id="e1" source="Patrol" target="Wait">
+      <data key="d2">Достигнута целевая точка</data>
+      <data key="d3">distance(robot, target) &lt; 0.5</data>
+      <data key="d4">swap(target, A, B); startTimer(t_wait)</data>
+    </edge>
+    <edge id="e2" source="Wait" target="Patrol">
+      <data key="d2">Пауза завершена</data>
+      <data key="d3">timerExpired(t_wait)</data>
+      <data key="d4">moveTo(target)</data>
+    </edge>
+  </graph>
+</graphml>
